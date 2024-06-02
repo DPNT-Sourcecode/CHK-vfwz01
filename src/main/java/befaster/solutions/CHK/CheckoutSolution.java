@@ -17,8 +17,10 @@ public class CheckoutSolution {
             prices.put('D', 15);
             prices.put('E', 40);
             specialOffers.put('A', new int[]{3,130});
-            specialOffers.put('B', new int[]{2,45});
             specialOffers.put('A', new int[]{5,200});
+            specialOffers.put('B', new int[]{2,45});
+
+            specialOffers.put('E', new int[]{2,80});
         }
 
 
@@ -45,9 +47,15 @@ public class CheckoutSolution {
                 int offerCount = offer[0];
                 int offerPrice = offer[1];
 
-                total += (count/offerCount)*offerPrice;
-                total += (count%offerCount)*prices.get(sku);
-            }else{
+                while(count>=offerCount){
+                    total += offerPrice;
+                    count -=offerCount;
+                }
+//                total += (count/offerCount)*offerPrice;
+//                total += (count%offerCount)*prices.get(sku);
+
+            }
+            if(sku != 'B') {
                 total += count*prices.get(sku);
             }
         }
@@ -55,8 +63,3 @@ public class CheckoutSolution {
     }
 
 }
-
-
-
-
-
