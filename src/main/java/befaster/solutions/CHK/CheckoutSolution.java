@@ -15,9 +15,10 @@ public class CheckoutSolution {
             prices.put('B', 30);
             prices.put('C', 20);
             prices.put('D', 15);
-
+            prices.put('E', 40);
             specialOffers.put('A', new int[]{3,130});
             specialOffers.put('B', new int[]{2,45});
+            specialOffers.put('A', new int[]{5,200});
         }
 
 
@@ -54,6 +55,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
