@@ -38,11 +38,23 @@ public class CheckoutSolution {
         for(Map.Entry<Character,Integer> entry: itemConter.entrySet()){
             char sku = entry.getKey();
             int count = entry.getValue();
+
+            if(specialOffers.containsKey(sku)){
+                int[] offer = specialOffers.get(sku);
+                int offerCount = offer[0];
+                int offerPrice = offer[1];
+
+                total += (count/offerCount)*offerPrice;
+                total += (count%offerCount)*prices.get(sku);
+            }else{
+                total += count*prices.get(sku);
+            }
         }
-        return 0;
+        return total;
     }
 
 }
+
 
 
 
