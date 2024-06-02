@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutSolution {
-        private static final Map<Character, int[]> specialOffer = new HashMap<>();
+        private static final Map<Character, int[]> specialOffers = new HashMap<>();
         private static final Map<Character, Integer> prices = new HashMap<>();
 
         static{
@@ -16,10 +16,11 @@ public class CheckoutSolution {
             prices.put('C', 20);
             prices.put('D', 15);
 
+            specialOffers.put('A', new int[]{3,130});
+            specialOffers.put('B', new int[]{2,45});
         }
 
-        specialOffer.put('A', new int[]{3,130});
-        specialOffer.put('B', new int[]{2,45});
+
 
     public Integer checkout(String skus) {
         //   throw new SolutionNotImplementedException();
@@ -37,4 +38,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
