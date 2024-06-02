@@ -34,9 +34,15 @@ public class CheckoutSolution {
             }
             itemConter.put(sku,itemConter.getOrDefault(sku,0)+1);
         }
+        int total =0;
+        for(Map.Entry<Character,Integer> entry: itemConter.entrySet()){
+            char sku = entry.getKey();
+            int count = entry.getValue();
+        }
         return 0;
     }
 
 }
+
 
 
