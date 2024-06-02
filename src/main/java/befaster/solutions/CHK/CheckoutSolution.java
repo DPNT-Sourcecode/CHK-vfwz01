@@ -38,7 +38,13 @@ public class CheckoutSolution {
             itemConter.put(sku,itemConter.getOrDefault(sku,0)+1);
         }
         int total =0;
-        int freeBCount =0;
+        int eCount = itemConter.getOrDefault('E',0);
+        int bCount = itemConter.getOrDefault('B',0);
+
+        if(eCount>=2 ){
+            int freeBCount = Math.min(eCount/2,bCount);
+            itemConter.put('B',bCount-freeBCount);
+        }
         for(Map.Entry<Character,Integer> entry: itemConter.entrySet()){
             char sku = entry.getKey();
             int count = entry.getValue();
@@ -51,18 +57,17 @@ public class CheckoutSolution {
                 while(count>=offerCount){
                     total += offerPrice;
                     count -=offerCount;
-                    if (sku=='E'){
-                        freeBCount++;
-                    }
+
                 }
 //                total += (count/offerCount)*offerPrice;
 //                total += (count%offerCount)*prices.get(sku);
             }
-                total += count*prices.get(sku);
+            total += count*prices.get(sku);
 
         }
-        total -=(freeBCount/2)*prices.get('B');
+
         return total;
     }
 
 }
+
